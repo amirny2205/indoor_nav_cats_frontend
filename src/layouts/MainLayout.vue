@@ -1,31 +1,20 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated style="display: flex; flex-direction:row ">
-  <q-space />
-  <RegisterComponent />
-
+      <div style="display: flex; flex-direction:column">
+      <router-link to="">
+	<q-btn color="white" text-color="black" label="home" />
+      </router-link>
+      <router-link to="/your_cats">
+	<q-btn color="white" text-color="black" label="your cats" />
+      </router-link>
+      <router-link to="">
+	<q-btn color="white" text-color="black" label="chat" />
+      </router-link>
+      </div>
+      <q-space />
+  <RegisterLoginComponent />
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -34,8 +23,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
-import RegisterComponent from 'components/RegisterComponent.vue' 
+import RegisterLoginComponent from 'components/RegisterLoginComponent.vue' 
 
 const linksList = [
   {
@@ -86,8 +74,7 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink,
-    RegisterComponent,
+    RegisterLoginComponent,
   },
 
   setup () {
