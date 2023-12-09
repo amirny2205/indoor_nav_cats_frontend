@@ -31,6 +31,19 @@ return localStorage.token })
 function rename(key) {
   console.log(key)
   console.log(rename_models[key])
+  axios.patch(import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'detail' + '/' + key + '/',
+	      {name: rename_models[key]},
+	    { headers: {
+	      'Access-Control-Allow-Origin': '*',
+	      'Content-type': 'application/json',
+	    }
+	    } 
+	     ).then(function (response) {
+	       fetch_cats()
+	     }).catch(function (response) {
+		   console.log(response)
+  		 }
+		     )
 }
 
 function fetch_cats() {
