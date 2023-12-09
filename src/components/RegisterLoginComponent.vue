@@ -8,7 +8,7 @@ const register_dialog = ref(false)
 const token = ref('')
 const registration_answer = ref('')
 const user_logged_in = ref('')
-const logged_in = ref(false)
+const logged_in = ref(localStorage.token)
 
 
   function register() {

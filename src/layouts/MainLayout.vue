@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated style="display: flex; flex-direction:row ">
       <div style="display: flex; flex-direction:column">
-      <router-link to="">
+      <router-link to="/">
 	<q-btn color="white" text-color="black" label="home" />
       </router-link>
       <router-link to="/your_cats">
