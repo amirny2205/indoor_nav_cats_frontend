@@ -1,41 +1,12 @@
-# Cats (indoor-nav-cats-frontend)
-
-Cats management
-
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+запустить quasar build, скопировать содержимое папки dist/spa/* в /data/www
+вот конфиг nginx:
+http {
+    include mime.types;
+    server {
+    index index.html;
+     	    location / {
+	        try_files $uri $uri/ index.html;
+	    	  root /data/www;
+		     }
+	  }
+}
