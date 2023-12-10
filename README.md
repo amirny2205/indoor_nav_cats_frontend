@@ -1,4 +1,5 @@
 запустить quasar build, скопировать содержимое папки dist/spa/* в /data/www
+
 вот конфиг nginx:
 
 http {
