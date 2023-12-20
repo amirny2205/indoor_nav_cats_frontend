@@ -8,7 +8,7 @@
       <router-link to="/your_cats">
 	<q-btn color="white" text-color="black" label="your cats" />
       </router-link>
-      <router-link to="">
+      <router-link to="/chats">
 	<q-btn color="white" text-color="black" label="chat" />
       </router-link>
       </div>

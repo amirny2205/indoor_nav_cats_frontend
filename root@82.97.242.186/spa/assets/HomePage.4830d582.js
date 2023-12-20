@@ -1,0 +1,1 @@
+import{_ as e,A as o,B as t}from"./index.0a6d1ef9.js";const r={},a={style:{margin:"auto",width:"50%","margin-top":"100px"}};function c(n,s){return o(),t("div",a," Home page. Ater login, you can proceed to YOUR CATS or CHAT ")}var i=e(r,[["render",c]]);export{i as default};
