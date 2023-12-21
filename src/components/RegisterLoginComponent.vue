@@ -38,11 +38,12 @@ function login() {
 		 'Content-type': 'application/json'}
 	       }
 	  ).then(function (response) {
-	    token.value=response.data.access
-	    localStorage.token = token.value
-	    logged_in.value = true
-  	  }
-		)
+		token.value = response.data.access
+		localStorage.token = token.value
+		localStorage.username = username.value
+		logged_in.value = true
+	}
+	)
 }
 
 function quit(){
