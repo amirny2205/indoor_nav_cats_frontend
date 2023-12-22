@@ -12,11 +12,13 @@ const logged_in = ref(localStorage.token)
 
 
   function register() {
-    axios.post(import.meta.env.VITE_BACKEND_URL + '/' + 'userauth' + '/' + 'register' + '/',
-	       {username: username.value, password: password.value},
-	       { headers: {
-		 'Access-Control-Allow-Origin': '*',
-		 'Content-type': 'application/json'}
+	axios.post('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'userauth' + '/' + 'register' + '/',
+		{ username: username.value, password: password.value },
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json'
+			}
 	       }
 	      ).then(function (response) {
 		register_dialog.value = true
@@ -31,11 +33,13 @@ const logged_in = ref(localStorage.token)
   }
 
 function login() {
-  axios.post(import.meta.env.VITE_BACKEND_URL + '/' + 'userauth' + '/' + 'token' + '/',
-	     {username: username.value, password: password.value},
-	       { headers: {
-		 'Access-Control-Allow-Origin': '*',
-		 'Content-type': 'application/json'}
+	axios.post('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'userauth' + '/' + 'token' + '/',
+		{ username: username.value, password: password.value },
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json'
+			}
 	       }
 	  ).then(function (response) {
 		token.value = response.data.access

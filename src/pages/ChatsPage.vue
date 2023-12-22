@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ref } from 'vue';
 const all_users = ref([]);
 const username = ref(localStorage.username);
-const socket = new WebSocket('ws://127.0.0.1:8000/ws');
+const socket = new WebSocket('ws://' + import.meta.env.VITE_BACKEND_URL + '/ws');
 const current_recipient = ref('')
 const messagelist = ref([])
 const localStorageData = ref(localStorage)
@@ -26,7 +26,7 @@ socket.onmessage = function (event) {
 };
 
 function getAllUsers() {
-	axios.get(import.meta.env.VITE_BACKEND_URL + '/' + 'chat' + '/' + 'userlist' + '/',
+	axios.get('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'chat' + '/' + 'userlist' + '/',
 		{
 			headers: {
 				'Access-Control-Allow-Origin': '*',
@@ -41,7 +41,7 @@ function getAllUsers() {
 getAllUsers()
 
 function get_message_list() {
-	axios.get(import.meta.env.VITE_BACKEND_URL + '/' + 'chat' + '/' + 'messagelist' + '/',
+	axios.get('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'chat' + '/' + 'messagelist' + '/',
 		{
 			headers: {
 				'Access-Control-Allow-Origin': '*',

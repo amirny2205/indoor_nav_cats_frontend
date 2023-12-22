@@ -37,13 +37,14 @@ let token = computed(() => {
   return localStorage.token })
 let new_cat_name = ref('')
 function create_cat(){
-  axios.post(import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'listcreate' + '/',
-	     {name: new_cat_name.value},
-	     { headers: {
-	       'Access-Control-Allow-Origin': '*',
-	       'Content-type': 'application/json',
-	       'Authorization' : 'Bearer ' + token.value
-	     }
+	axios.post('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'listcreate' + '/',
+		{ name: new_cat_name.value },
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json',
+				'Authorization': 'Bearer ' + token.value
+			}
 	     }).then((response) => {
 	       fetch_cats()
 	     }).catch((err) => {
@@ -53,11 +54,12 @@ function create_cat(){
 }
 
 function dlt(key) {
-  axios.delete(import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'detail' + '/' + key + '/',
-	    { headers: {
-	      'Access-Control-Allow-Origin': '*',
-	      'Content-type': 'application/json',
-	    }
+	axios.delete('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'detail' + '/' + key + '/',
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json',
+			}
 	    } 
 	     ).then(function (response) {
 	       fetch_cats()
@@ -69,12 +71,13 @@ function dlt(key) {
 
 
 function rename(key) {
-  axios.patch(import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'detail' + '/' + key + '/',
-	      {name: rename_models[key]},
-	    { headers: {
-	      'Access-Control-Allow-Origin': '*',
-	      'Content-type': 'application/json',
-	    }
+	axios.patch('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'detail' + '/' + key + '/',
+		{ name: rename_models[key] },
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json',
+			}
 	    } 
 	     ).then(function (response) {
 	       fetch_cats()
@@ -85,12 +88,13 @@ function rename(key) {
 }
 
 function fetch_cats() {
-  axios.get(import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'listcreate' + '/',
-	     { headers: {
-		 'Access-Control-Allow-Origin': '*',
-		 'Content-type': 'application/json',
-	       'Authorization' : 'Bearer ' + token.value
-	     }
+	axios.get('http://' + import.meta.env.VITE_BACKEND_URL + '/' + 'cats' + '/' + 'listcreate' + '/',
+		{
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-type': 'application/json',
+				'Authorization': 'Bearer ' + token.value
+			}
 	     } 
 	   ).then(function (response) {
 	     cats.value = response.data
